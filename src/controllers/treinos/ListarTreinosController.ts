@@ -4,7 +4,7 @@ import { ListarTreinosService } from "../../services/treinos/ListarTreinosServic
 class ListarTreinosController {
   async handle(req: Request, res: Response) {
 
-    const {id_usuario} = req.body
+    const id_usuario = Number(req.query.id_usuario)
 
     const listarTreinosService = new ListarTreinosService();
 
