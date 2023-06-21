@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE `users` (
+CREATE TABLE `usuarios` (
     `id_usuario` INTEGER NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
@@ -15,6 +15,7 @@ CREATE TABLE `users` (
 CREATE TABLE `Treinos` (
     `id_treino` INTEGER NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(191) NOT NULL,
+    `id_usuario` INTEGER NOT NULL,
 
     PRIMARY KEY (`id_treino`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -33,7 +34,10 @@ CREATE TABLE `Exercicio` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Exercicio` ADD CONSTRAINT `Exercicio_id_usuario_fkey` FOREIGN KEY (`id_usuario`) REFERENCES `users`(`id_usuario`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Treinos` ADD CONSTRAINT `Treinos_id_usuario_fkey` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios`(`id_usuario`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Exercicio` ADD CONSTRAINT `Exercicio_id_usuario_fkey` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios`(`id_usuario`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Exercicio` ADD CONSTRAINT `Exercicio_id_treino_fkey` FOREIGN KEY (`id_treino`) REFERENCES `Treinos`(`id_treino`) ON DELETE RESTRICT ON UPDATE CASCADE;
