@@ -9,7 +9,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 3333
 
 app.use(router);
 
@@ -26,6 +25,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor online na porta ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Servidor online na porta ${process.env.PORT}`);
 });
