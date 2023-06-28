@@ -4,7 +4,7 @@ import { DeletarTreinoService } from "../../services/treinos/DeletarTreinoServic
 class DeletarTreinoController {
   async handle(req: Request, res: Response) {
 
-    const {id_treino} = req.body;
+    const id_treino = Number(req.query.id_treino);
 
     const deletarTreinoService = new DeletarTreinoService();
 

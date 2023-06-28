@@ -4,7 +4,7 @@ import { ExcluirExercicioService } from "../../services/exercicios/ExcluirExerci
 class ExcluirExercicioController {
   async handle(req: Request, res: Response) {
 
-    const {id_exercicio} = req.body;
+    const id_exercicio = Number(req.query.id_exercicio);
 
     const excluirExercicioService = new ExcluirExercicioService();
 

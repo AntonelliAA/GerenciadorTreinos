@@ -1,10 +1,10 @@
 import prismaClient from "../../prisma";
 
 interface Exercicio {
-  series?: number;
-  repeticoes?: number;
-  carga?: number;
-  nome?: string;
+  series: number;
+  repeticoes: number;
+  carga: number;
+  nome: string;
   id_exercicio: number;
 }
 

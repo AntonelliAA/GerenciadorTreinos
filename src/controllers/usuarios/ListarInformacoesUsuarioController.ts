@@ -4,7 +4,7 @@ import { ListarInformacoesUsuarioService } from "../../services/usuarios/ListarI
 class ListarInformacoesUsuarioController {
   async handle(req: Request, res: Response) {
 
-    const {id_usuario} = req.body
+    const id_usuario = Number(req.query.id_usuario)
 
     if(!id_usuario){
         throw new Error("Informe um id válido!")
